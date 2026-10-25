@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>AIKOUCAR TODO</title>
+<style>
+  :root { --bg:#0e0e0e; --card:#1a1a1a; --line:#333; --text:#f3f3f3; --sub:#a8a8a8; --accent:#ff7a00; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic UI","Meiryo",sans-serif; line-height:1.8; }
+  main { max-width:520px; margin:0 auto; padding:48px 20px 64px; }
+  .brand { font-size:12px; letter-spacing:.3em; color:var(--accent); font-weight:700; }
+  h1 { font-size:22px; margin:10px 0 20px; line-height:1.5; }
+  .box { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px 18px; margin:0 0 22px; }
+  .meta { font-size:13px; color:var(--sub); }
+  .task { font-weight:700; font-size:17px; margin-top:4px; }
+  button { appearance:none; border:0; border-radius:10px; background:var(--accent); color:#111; font-weight:700;
+    font-size:17px; padding:14px 28px; width:100%; cursor:pointer; font-family:inherit; }
+  button:disabled { opacity:.5; cursor:default; }
+  button.link { background:none; color:var(--sub); font-size:14px; font-weight:400; text-decoration:underline; padding:8px; width:auto; }
+  p { margin:0 0 14px; }
+  .sub { font-size:14px; color:var(--sub); }
+  [hidden] { display:none !important; }
+</style>
+</head>
+<body>
+<main>
+  <div class="brand">AIKOUCAR TODO</div>
+  <h1 id="title">確認しています…</h1>
+  <div class="box" id="box" hidden>
+    <div class="meta" id="meta"></div>
+    <div class="task" id="task"></div>
+  </div>
+  <p id="msg" class="sub"></p>
+  <button id="go" hidden>完了にする</button>
+  <p><button id="undo" class="link" hidden>間違えた場合は、ここを押すと取り消せます</button></p>
+</main>
+<script>
+(function () {
+  var GAS = 'https://script.google.com/macros/s/AKfycbxlrNwJtza5msGbiVvvjUdhF_2ziHDGKSKx0Fa01UL0_zyJeWhl5eM-jO9Hyf7gpAOGHg/exec';
+  var q = new URLSearchParams(location.search);
+  var id = q.get('id') || '', t = q.get('t') || '', a = q.get('a') || 'done';
+  var $ = function (x) { return document.getElementById(x); };
+  var TITLES = {
+    bad: 'リンクが正しくありません', notfound: 'このTODOは見つかりません', already: 'すでに完了になっています',
+    confirm: 'このTODOを完了にしますか？', done: '完了を記録しました', undone: '未完了に戻しました'
+  };
+  var MSGS = {
+    bad: 'メールのボタンから、もう一度開いてください。', notfound: '一覧から外された可能性があります。',
+    done: 'ありがとうございます。この画面は閉じて大丈夫です。', undone: '完了にするときは、メールのボタンからもう一度開いてください。'
+  };
+  function show(r) {
+    $('title').textContent = TITLES[r.code] || '確認できませんでした';
+    $('msg').textContent = MSGS[r.code] || '';
+    if (r.t) {
+      $('meta').textContent = r.t.who + (r.t.due ? '　期限 ' + r.t.due : '');
+      $('task').textContent = r.t.task;
+      $('box').hidden = false;
+    }
+    $('go').hidden = r.code !== 'confirm';
+    $('go').disabled = false;
+    $('undo').hidden = !(r.code === 'done' || r.code === 'already');
+    $('undo').disabled = false;
+  }
+  function fail() {
+    $('title').textContent = '通信できませんでした';
+    $('msg').textContent = '電波のよい場所で、このページをもう一度開いてください。';
+    $('go').disabled = false; $('undo').disabled = false;
+  }
+  function call(act, confirm) {
+    var u = GAS + '?f=json&a=' + encodeURIComponent(act) + '&id=' + encodeURIComponent(id) +
+      '&t=' + encodeURIComponent(t) + (confirm ? '&c=1' : '');
+    return fetch(u, { credentials: 'omit', redirect: 'follow' })
+      .then(function (r) { return r.json(); }).then(show).catch(fail);
+  }
+  $('go').addEventListener('click', function () { $('go').disabled = true; $('title').textContent = '記録しています…'; call('done', true); });
+  $('undo').addEventListener('click', function () { $('undo').disabled = true; $('title').textContent = '取り消しています…'; call('undo', true); });
+  if (!id || !t || (a !== 'done' && a !== 'undo')) { show({ code: 'bad' }); return; }
+  if (a === 'undo') call('undo', true);
+  else call('done', false); // 開いただけでは完了にしない。まず内容を表示して確認する
+})();
+</script>
+</body>
+</html>

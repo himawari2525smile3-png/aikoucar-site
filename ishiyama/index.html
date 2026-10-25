@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>石山智大｜AIKOUCAR クルー</title>
+<meta name="description" content="AIKOUCAR イベント担当・石山智大のプロフィール。商業施設の運営経験を活かし、那須に車好きが集まる拠点をつくっています。">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="石山智大｜AIKOUCAR クルー">
+<meta property="og:description" content="走る楽しさの、その先へ。那須に車好きが集まる拠点をつくる、石山智大のプロフィール。">
+<meta property="og:type" content="profile">
+<meta property="og:url" content="https://aikoucar.netlify.app/ishiyama/">
+<meta property="og:image" content="https://aikoucar.netlify.app/ishiyama/photo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:ital,wght@0,700;1,700;1,900&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --void:#050505;--carbon:#1A1A1A;--edge:#2B2B2B;
+  --nos:#FFA23A;--nos-d:#B8661A;--tail:#FF6A00;
+  --chrome:#E0E0E0;--mute:#BDBDBD;--dim:#9A9A9A;
+  --anton:"Anton",Impact,sans-serif;
+  --arch:"Archivo",system-ui,sans-serif;
+  --jp:"Zen Kaku Gothic New",system-ui,sans-serif;
+  --sk:-9deg;
+  --pad:clamp(16px,4.4vw,40px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--void);color:var(--chrome);font-family:var(--jp);line-height:1.95;letter-spacing:.03em;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--nos);outline-offset:3px}
+.wrap{max-width:960px;margin:0 auto;padding-inline:var(--pad)}
+
+/* header */
+.hd{position:sticky;top:0;z-index:20;background:rgba(5,5,5,.88);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--edge)}
+.hd .wrap{height:60px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{font-family:var(--anton);font-size:24px;letter-spacing:.06em;text-decoration:none;color:#fff;min-height:44px;display:flex;align-items:center}
+.logo b{color:var(--tail);font-weight:400}
+.back{display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 14px;border:1px solid var(--edge);font-size:13px;font-weight:700;text-decoration:none;color:var(--chrome);transition:border-color .3s,color .3s}
+.back:hover{border-color:var(--nos);color:#fff}
+
+/* hero */
+.hero{padding:clamp(40px,9vw,88px) 0 clamp(36px,7vw,64px)}
+.hero-in{display:grid;gap:clamp(28px,6vw,56px);align-items:center}
+.photo{position:relative;width:min(320px,78vw);aspect-ratio:1;justify-self:center}
+.photo::before{content:"";position:absolute;inset:0;border:2px solid var(--tail);transform:translate(14px,14px) skewX(var(--sk))}
+.photo img{position:relative;width:100%;height:100%;object-fit:cover;filter:saturate(.92) contrast(1.04)}
+.eyebrow{display:flex;align-items:center;gap:10px;font-family:var(--arch);font-style:italic;font-weight:900;font-size:13px;letter-spacing:.16em;color:var(--tail);text-transform:uppercase}
+.eyebrow::before{content:"";width:28px;height:2px;background:var(--tail);transform:skewX(var(--sk))}
+h1{font-weight:900;font-size:clamp(36px,9vw,58px);line-height:1.25;color:#fff;margin-top:10px;letter-spacing:.08em}
+h1 span{display:block;font-family:var(--anton);font-weight:400;font-size:clamp(14px,3.4vw,18px);letter-spacing:.22em;color:var(--dim);margin-top:6px}
+.role{display:inline-block;margin-top:16px;padding:4px 14px;background:var(--tail);color:#050505;font-weight:900;font-size:14px;transform:skewX(var(--sk))}
+.role i{display:inline-block;transform:skewX(calc(-1 * var(--sk)));font-style:normal}
+.catch{margin-top:22px;font-weight:900;font-size:clamp(20px,5vw,26px);line-height:1.6;color:#fff}
+.catch small{display:block;font-weight:500;font-size:clamp(14px,3.6vw,16px);color:var(--mute);margin-top:4px}
+
+/* profile */
+.sec{padding:clamp(48px,9vw,88px) 0;border-top:1px solid var(--edge)}
+.sec h2{font-family:var(--anton);font-weight:400;font-size:clamp(34px,8vw,52px);letter-spacing:.04em;color:#fff;line-height:1.1}
+.sec h2 small{display:block;font-family:var(--jp);font-weight:700;font-size:14px;letter-spacing:.12em;color:var(--nos);margin-top:8px}
+.tx{margin-top:clamp(24px,5vw,36px);max-width:40em;font-size:clamp(15px,3.9vw,16px);line-height:2.1;color:var(--mute)}
+.tx p+p{margin-top:1.4em}
+.tx strong{color:#fff;font-weight:700}
+.quote{margin:clamp(32px,6vw,48px) 0;padding:clamp(22px,5vw,32px) clamp(20px,5vw,36px);background:var(--carbon);border-left:4px solid var(--tail);font-weight:900;font-size:clamp(18px,4.6vw,22px);line-height:1.8;color:#fff}
+
+/* career */
+.cards{display:grid;gap:14px;margin-top:clamp(24px,5vw,36px)}
+.card{background:var(--carbon);border:1px solid var(--edge);padding:22px 22px 24px}
+.card .k{font-family:var(--arch);font-style:italic;font-weight:900;font-size:12px;letter-spacing:.14em;color:var(--nos)}
+.card h3{font-size:17px;font-weight:900;color:#fff;margin-top:6px;line-height:1.6}
+.card p{font-size:14px;color:var(--mute);line-height:1.95;margin-top:10px}
+
+/* finale */
+.finale{padding:clamp(56px,11vw,104px) 0;text-align:center;border-top:1px solid var(--edge)}
+.finale .big{font-weight:900;font-size:clamp(26px,6.6vw,40px);color:#fff;line-height:1.5}
+.finale p{color:var(--mute);margin-top:12px;font-size:15px}
+.cta{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 32px;margin-top:28px;background:var(--tail);color:#050505;font-weight:900;font-size:16px;text-decoration:none;transform:skewX(var(--sk));transition:background .3s}
+.cta i{display:inline-block;transform:skewX(calc(-1 * var(--sk)));font-style:normal}
+.cta:hover{background:var(--nos)}
+.ft{padding:28px 0 36px;text-align:center;font-family:var(--arch);font-size:12px;color:var(--dim);border-top:1px solid var(--edge)}
+
+@media (min-width:760px){
+  .hero-in{grid-template-columns:320px 1fr}
+  .photo{justify-self:start}
+  .cards{grid-template-columns:repeat(3,1fr)}
+}
+</style>
+</head>
+<body>
+
+<header class="hd">
+  <div class="wrap">
+    <a class="logo" href="https://aikoucar.netlify.app/" aria-label="AIKOUCAR トップへ">AIKOU<b>CAR</b></a>
+    <a class="back" href="https://aikoucar.netlify.app/#crew">クルー一覧に戻る</a>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap hero-in">
+    <figure class="photo"><img src="photo.jpg" alt="石山智大" width="640" height="640"></figure>
+    <div>
+      <p class="eyebrow">The Crew</p>
+      <h1>石山 智大<span>AIKOUCAR CREW</span></h1>
+      <p class="role"><i>イベント担当</i></p>
+      <p class="catch">走る楽しさの、その先へ。<small>ドライブの目的地から、新たな出会いが生まれる場所へ。</small></p>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <h2>PROFILE<small>自己紹介</small></h2>
+    <div class="tx">
+      <p>双日グループの子会社が運営する商業施設にて、プロパティマネジメント（PM）業務に5年間従事。テナントリーシングや賃貸借契約、販促企画、施設管理、テナントリレーション、地域連携など、商業施設運営に関わる幅広い業務を経験してきました。</p>
+      <p>また、父が営んできた広告代理業を引き継ぎ、商業施設や行政、地域企業と連携した販促企画やイベントの企画・運営にも携わってきました。</p>
+      <p>一方、プライベートでは車をこよなく愛し、趣味の延長として車両売買にも取り組んできました。その経験から、ショッピングモールのように、車の展示・販売・買取・イベントなど、多彩なコンテンツが集まる新しいビジネスの形を構想してきました。</p>
+      <p>その実現に向けて選んだ場所が、関東・東北の双方から東北自動車道を利用してアクセスできる<strong>那須</strong>です。</p>
+    </div>
+    <p class="quote">「ドライブやツーリングの目的地として訪れ、愛車を眺めながら食事を楽しみ、車好き同士の新たな交流が生まれる場所」</p>
+    <div class="tx">
+      <p>そんな想いから、<strong>Daikoku Terrace</strong>の立ち上げを決意しました。</p>
+      <p>単なるカフェにとどまらず、カーイベントや車両売買、飲食、物販、地域との連携など、さまざまなコンテンツが共存する新しいカーライフの拠点を目指しています。</p>
+      <p>車種やジャンル、世代を問わず、車好きはもちろん、誰もが気軽に集まり、楽しめる場所を創り上げていきたいと考えています。</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <h2>CAREER<small>これまでの経験</small></h2>
+    <div class="cards">
+      <article class="card"><p class="k">PROPERTY MANAGEMENT</p><h3>商業施設の運営 5年</h3><p>テナントリーシング、賃貸借契約、販促企画、施設管理、テナントリレーション、地域連携。</p></article>
+      <article class="card"><p class="k">PROMOTION &amp; EVENTS</p><h3>広告代理業を継承</h3><p>商業施設・行政・地域企業と連携した販促企画、イベントの企画・運営。</p></article>
+      <article class="card"><p class="k">CAR LIFE</p><h3>車好き、そして車両売買</h3><p>趣味の延長で車両売買に取り組み、車が主役の新しい集客拠点を構想。</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="finale">
+  <div class="wrap">
+    <p class="big">那須で、お待ちしています。</p>
+    <p>イベントやカフェのこと、気軽に声をかけてください。</p>
+    <a class="cta" href="https://aikoucar.netlify.app/#crew"><i>AIKOUCAR に戻る →</i></a>
+  </div>
+</section>
+</main>
+
+<footer class="ft">© 2026 AIKOUCAR</footer>
+</body>
+</html>
