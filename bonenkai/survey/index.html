@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AIKOUCAR 忘年会 アンケート</title>
+<meta name="description" content="AIKOUCAR 忘年会 in 那須（2026年12月26日〜27日）にご参加いただいた方へのアンケートです。">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<script>
+window.SURVEY_CFG = {
+  EVENT_ID: "bonenkai2026_survey",
+  GAS_URL: "",   // 受付システム切替後に設定
+  LINE_URL: "https://line.me/ti/g/ad9U6nLKP9"
+};
+</script>
+<style>
+
+:root{
+  --void:#050505; --carbon:#141414; --carbon2:#1C1C1C; --edge:#2E2E2E;
+  --nos:#FFA23A; --tail:#FF6A00;
+  --chrome:#ECECEC; --mute:#C2C2C2; --dim:#9A9A9A; --ok:#4ECB7D; --ng:#FF6B5E;
+  --anton:"Anton",Impact,sans-serif; --arch:"Archivo",system-ui,sans-serif;
+  --jp:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{background:var(--void);color:var(--chrome);font-family:var(--jp);font-size:15px;line-height:1.9;letter-spacing:.02em;overflow-x:hidden}
+a{color:var(--nos)}
+img{display:block;max-width:100%}
+.wrap{max-width:760px;margin:0 auto;padding:0 18px}
+section{padding:56px 0;border-top:1px solid var(--edge)}
+.kick{font-family:var(--arch);font-weight:700;font-size:12px;letter-spacing:.32em;color:var(--nos);text-transform:uppercase;margin-bottom:8px}
+h2{font-weight:900;font-size:clamp(22px,6vw,30px);line-height:1.4;margin-bottom:18px}
+.lead{color:var(--mute)}
+.small{font-size:13px;color:var(--dim);line-height:1.8}
+
+/* form */
+form{margin-top:8px}
+.f{margin-bottom:20px}
+.f>label,.f>p.l{display:block;font-weight:700;font-size:14px;margin-bottom:6px}
+.f .req{font-size:11px;background:var(--tail);color:#0A0A0A;padding:1px 6px;border-radius:2px;margin-left:6px;font-weight:900}
+.f .opt{font-size:11px;color:var(--dim);margin-left:6px}
+input[type=text],input[type=email],input[type=tel],select,textarea{width:100%;background:var(--carbon);border:1px solid var(--edge);color:var(--chrome);font-size:16px;padding:12px;border-radius:4px;font-family:var(--jp)}
+textarea{min-height:96px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--tail);outline-offset:0;border-color:transparent}
+.choices{display:grid;gap:8px}
+.choices label{display:flex;gap:10px;align-items:flex-start;background:var(--carbon);border:1px solid var(--edge);border-radius:4px;padding:11px 12px;font-size:14px;cursor:pointer;line-height:1.6}
+.choices label:has(input:checked){border-color:var(--tail);background:#1F1306}
+.choices input{margin-top:4px;accent-color:var(--tail)}
+.choices small{display:block;color:var(--dim);font-size:12px}
+.err{display:none;color:var(--ng);font-size:13px;margin-top:4px}
+.f.bad .err{display:block}
+.f.bad input,.f.bad select{border-color:var(--ng)}
+.agree{display:flex;gap:10px;font-size:14px;align-items:flex-start;margin:6px 0 4px}
+.agree input{margin-top:5px;accent-color:var(--tail)}
+details.privacy{font-size:13px;color:var(--dim);margin:10px 0 14px}
+details.privacy summary{cursor:pointer;color:var(--mute)}
+.msg{display:none;border-radius:6px;padding:16px;margin-top:16px}
+.msg.show{display:block}
+.msg.ok{background:#0F2418;border:1px solid var(--ok)}
+.msg.ng{background:#2A1210;border:1px solid var(--ng)}
+.msg h3{font-size:17px;margin-bottom:6px}
+.closed{display:none}
+
+footer{border-top:1px solid var(--edge);padding:28px 0 40px;text-align:center;font-size:13px;color:var(--dim)}
+.cta{display:block;width:100%;text-align:center;background:var(--tail);color:#0A0A0A;font-weight:900;font-size:17px;padding:16px;border:0;border-radius:4px;text-decoration:none;cursor:pointer;margin-top:22px;font-family:var(--jp)}
+.cta:disabled{opacity:.6;cursor:wait}
+.top{padding:48px 0 24px;border-top:0;background:linear-gradient(180deg,rgba(0,0,0,.3),var(--void)),url(../img/venue.jpg) center 40%/cover}
+.top .brand{font-family:var(--anton);font-size:20px;letter-spacing:.06em;transform:skewX(-9deg);display:inline-block;color:#fff;text-decoration:none}
+.top .brand span{color:var(--tail)}
+.top h1{font-weight:900;font-size:clamp(26px,7vw,38px);line-height:1.3;margin-top:70px;text-shadow:0 2px 12px rgba(0,0,0,.8)}
+.top p{font-weight:700;margin-top:8px;text-shadow:0 1px 8px rgba(0,0,0,.9)}
+.scale{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.scale.nps{grid-template-columns:repeat(11,1fr);gap:3px}
+.scale label{display:flex;flex-direction:column;align-items:center;gap:2px;background:var(--carbon);border:1px solid var(--edge);border-radius:4px;padding:8px 0;font-family:var(--anton);font-size:18px;cursor:pointer}
+.scale.nps label{font-size:15px;padding:8px 0}
+.scale label:has(input:checked){border-color:var(--tail);background:var(--tail);color:#0A0A0A}
+.scale input{position:absolute;opacity:0;pointer-events:none}
+.ends{display:flex;justify-content:space-between;font-size:11.5px;color:var(--dim);margin-top:4px}
+.choices.two{grid-template-columns:1fr 1fr}
+
+</style>
+</head>
+<body>
+<section class="top">
+  <div class="wrap">
+    <a class="brand" href="https://aikoucar.netlify.app/">AIKOU<span>CAR</span></a>
+    <h1>忘年会 in 那須<br>アンケート</h1>
+    <p>ご参加ありがとうございました。次の集まりをもっと楽しくするために、感想を聞かせてください。（約2分）</p>
+  </div>
+</section>
+
+<section style="border-top:0;padding-top:24px">
+  <div class="wrap">
+    <form id="f" novalidate>
+      <div class="f" data-k="days"><p class="l">参加した日<span class="req">必須</span></p>
+        <div class="choices"><label><input type="radio" name="days" value="両日"><span>両日</span></label><label><input type="radio" name="days" value="12/26 前夜祭のみ"><span>12/26 前夜祭のみ</span></label><label><input type="radio" name="days" value="12/27 本番のみ"><span>12/27 本番のみ</span></label></div><p class="err">選んでください</p></div>
+
+      <div class="f" data-k="sat"><p class="l">全体の満足度<span class="req">必須</span></p>
+        <div class="scale"><label><input type="radio" name="sat" value="1">1</label><label><input type="radio" name="sat" value="2">2</label><label><input type="radio" name="sat" value="3">3</label><label><input type="radio" name="sat" value="4">4</label><label><input type="radio" name="sat" value="5">5</label></div><div class="ends"><span>1 不満</span><span>5 とても満足</span></div><p class="err">選んでください</p></div>
+
+      <div class="f" data-k="good"><p class="l">よかったこと<span class="opt">いくつでも</span></p>
+        <div class="choices two"><label><input type="checkbox" name="good" value="参加者との交流"><span>参加者との交流</span></label><label><input type="checkbox" name="good" value="車の展示・撮影"><span>車の展示・撮影</span></label><label><input type="checkbox" name="good" value="前夜祭"><span>前夜祭</span></label><label><input type="checkbox" name="good" value="食事・飲み物"><span>食事・飲み物</span></label><label><input type="checkbox" name="good" value="会場の雰囲気"><span>会場の雰囲気</span></label><label><input type="checkbox" name="good" value="運営の進行"><span>運営の進行</span></label><label><input type="checkbox" name="good" value="グループ分け"><span>グループ分け</span></label><label><input type="checkbox" name="good" value="その他"><span>その他</span></label></div></div>
+
+      <div class="f" data-k="improve"><label for="improve">もっとこうだったら、と思ったこと<span class="opt">任意</span></label>
+        <textarea id="improve" placeholder="時間配分、料理、交流の仕方、会場、案内のわかりやすさなど"></textarea></div>
+
+      <div class="f" data-k="fee"><p class="l">割り勘制の参加費について<span class="opt">任意</span></p>
+        <div class="choices two"><label><input type="radio" name="fee" value="ちょうどよかった"><span>ちょうどよかった</span></label><label><input type="radio" name="fee" value="高く感じた"><span>高く感じた</span></label><label><input type="radio" name="fee" value="安く感じた"><span>安く感じた</span></label><label><input type="radio" name="fee" value="決まった金額のほうがよい"><span>決まった金額のほうがよい</span></label></div></div>
+
+      <div class="f" data-k="again"><p class="l">次のイベントにも参加したいですか<span class="req">必須</span></p>
+        <div class="choices two"><label><input type="radio" name="again" value="ぜひ参加したい"><span>ぜひ参加したい</span></label><label><input type="radio" name="again" value="予定が合えば参加したい"><span>予定が合えば参加したい</span></label><label><input type="radio" name="again" value="わからない"><span>わからない</span></label><label><input type="radio" name="again" value="参加しないと思う"><span>参加しないと思う</span></label></div><p class="err">選んでください</p></div>
+
+      <div class="f" data-k="next"><p class="l">次に参加してみたい企画<span class="opt">いくつでも</span></p>
+        <div class="choices two"><label><input type="checkbox" name="next" value="ツーリング・ドライブ"><span>ツーリング・ドライブ</span></label><label><input type="checkbox" name="next" value="撮影会"><span>撮影会</span></label><label><input type="checkbox" name="next" value="試乗会"><span>試乗会</span></label><label><input type="checkbox" name="next" value="BBQ・キャンプ"><span>BBQ・キャンプ</span></label><label><input type="checkbox" name="next" value="オンライン交流会"><span>オンライン交流会</span></label><label><input type="checkbox" name="next" value="整備・カスタムの勉強会"><span>整備・カスタムの勉強会</span></label><label><input type="checkbox" name="next" value="新年会・季節のイベント"><span>新年会・季節のイベント</span></label><label><input type="checkbox" name="next" value="その他"><span>その他</span></label></div></div>
+
+      <div class="f" data-k="nps"><p class="l">AIKOUCARを友人にすすめたいと思いますか<span class="req">必須</span></p>
+        <div class="scale nps"><label><input type="radio" name="nps" value="0">0</label><label><input type="radio" name="nps" value="1">1</label><label><input type="radio" name="nps" value="2">2</label><label><input type="radio" name="nps" value="3">3</label><label><input type="radio" name="nps" value="4">4</label><label><input type="radio" name="nps" value="5">5</label><label><input type="radio" name="nps" value="6">6</label><label><input type="radio" name="nps" value="7">7</label><label><input type="radio" name="nps" value="8">8</label><label><input type="radio" name="nps" value="9">9</label><label><input type="radio" name="nps" value="10">10</label></div><div class="ends"><span>0 すすめない</span><span>10 ぜひすすめたい</span></div><p class="err">選んでください</p></div>
+
+      <div class="f" data-k="member"><p class="l">2027年3月に始まる有料会員に興味はありますか<span class="opt">任意</span></p>
+        <div class="choices two"><label><input type="radio" name="member" value="興味がある"><span>興味がある</span></label><label><input type="radio" name="member" value="少し興味がある"><span>少し興味がある</span></label><label><input type="radio" name="member" value="今はない"><span>今はない</span></label><label><input type="radio" name="member" value="内容を知りたい"><span>内容を知りたい</span></label></div></div>
+
+      <div class="f" data-k="comment"><label for="comment">ひとこと感想<span class="opt">任意</span></label>
+        <textarea id="comment" placeholder="楽しかったこと、印象に残ったことなど"></textarea></div>
+
+      <div class="f" data-k="publish"><p class="l">感想をSNSやHPで紹介してもよいですか<span class="opt">任意</span></p>
+        <div class="choices"><label><input type="radio" name="publish" value="名前つきでOK"><span>名前つきでOK</span></label><label><input type="radio" name="publish" value="匿名ならOK"><span>匿名ならOK</span></label><label><input type="radio" name="publish" value="紹介しないでほしい"><span>紹介しないでほしい</span></label></div></div>
+
+      <div class="f" data-k="name"><label for="name">お名前・ニックネーム<span class="opt">任意（匿名でも回答できます）</span></label>
+        <input id="name" type="text" placeholder="例）やまだ"></div>
+
+      <button class="cta" type="submit" id="submit">回答を送る</button>
+    </form>
+    <div class="msg" id="result" role="status" aria-live="polite"></div>
+  </div>
+</section>
+
+<footer><p>主催：AIKOUCAR　<a href="https://aikoucar.netlify.app/">HP</a>／<a href="https://line.me/ti/g/ad9U6nLKP9" target="_blank" rel="noopener">LINE</a></p></footer>
+
+<script>
+(function(){
+  var C = window.SURVEY_CFG, f = document.getElementById('f');
+  function $(id){ return document.getElementById(id); }
+  function radio(n){ var r = f.querySelector('input[name="' + n + '"]:checked'); return r ? r.value : ''; }
+  function checks(n){ return [].map.call(f.querySelectorAll('input[name="' + n + '"]:checked'), function(i){ return i.value; }).join('、'); }
+  function setBad(k, bad){ var el = f.querySelector('.f[data-k="' + k + '"]'); el.classList.toggle('bad', bad); return !bad; }
+  function show(kind, html){ var m = $('result'); m.className = 'msg show ' + kind; m.innerHTML = html; m.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+  var lineA = '<a href="' + C.LINE_URL + '" target="_blank" rel="noopener">LINE</a>';
+  f.addEventListener('submit', function(e){
+    e.preventDefault();
+    var ok = true;
+    ['days','sat','again','nps'].forEach(function(k){ ok = setBad(k, !radio(k)) && ok; });
+    if (!ok){ f.querySelector('.f.bad').scrollIntoView({ behavior: 'smooth', block: 'center' }); return; }
+    var data = { event: C.EVENT_ID, days: radio('days'), sat: radio('sat'), good: checks('good'), improve: $('improve').value.trim(),
+      fee: radio('fee'), again: radio('again'), next: checks('next'), nps: radio('nps'), member: radio('member'),
+      comment: $('comment').value.trim(), publish: radio('publish'), name: $('name').value.trim() };
+    if (!C.GAS_URL){ show('ng', '<h3>ただいま準備中です</h3><p>アンケートの受付はまもなく始まります。</p>'); return; }
+    var btn = $('submit'); btn.disabled = true; btn.textContent = '送信しています…';
+    fetch(C.GAS_URL, { method: 'POST', body: JSON.stringify(data) })
+      .then(function(r){ return r.json(); })
+      .then(function(d){
+        if (d.ok){ f.style.display = 'none'; show('ok', '<h3>ご回答ありがとうございました</h3><p>いただいた声は、次の集まりづくりに必ず活かします。これからもAIKOUCARをよろしくお願いします。</p>'); }
+        else { throw 0; }
+      })
+      .catch(function(){ show('ng', '<h3>送信できませんでした</h3><p>時間をおいてもう一度お試しください。解決しない場合は ' + lineA + ' でお知らせください。</p>'); btn.disabled = false; btn.textContent = '回答を送る'; });
+  });
+})();
+</script>
+</body>
+</html>

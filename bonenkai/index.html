@@ -17,7 +17,7 @@
 window.EVENT_CFG = {
   EVENT_ID: "bonenkai2026",
   GAS_URL: "",   // 受付システム切替後に設定：https://script.google.com/macros/s/AKfycbwn0PguohE48mt3OeP1Q-P0JZ9dY9x-tM21f_LQhZxnulpJWd36nctW2gkPDVyNPFFY/exec
-  DEADLINE: "2026-12-26T23:59:59+09:00",      // 申込締切（車の展示は前日までに申込の方のみ）
+  DEADLINE: "2026-12-25T22:00:00+09:00",      // 申込締切
   START: "2026-12-27T10:00:00+09:00",         // カウントダウンの基準（本番の集合時刻）
   LINE_URL: "https://line.me/ti/g/ad9U6nLKP9",
   HP_URL: "https://aikoucar.netlify.app/"
@@ -178,7 +178,7 @@ footer a{margin:0 6px}
         <div><b id="cdH">--</b><span>HRS</span></div>
         <div><b id="cdM">--</b><span>MIN</span></div>
       </div>
-      <p class="dl">申込締切 12/26（土）23:59</p>
+      <p class="dl">申込締切 12/25（金）22:00</p>
     </div>
     <div class="share">
       <a id="calBtn" href="#" target="_blank" rel="noopener">📅 カレンダーに追加</a>
@@ -201,7 +201,7 @@ footer a{margin:0 6px}
       <li><b>交流がメイン</b><span>テーブルごとにグループを分け、運営メンバーが一緒に進めます。ひとりで来ても大丈夫です。</span></li>
       <li><b>屋内で、あたたかく</b><span>冬の那須なので屋内で開催します。ライトアップとクリスマスツリーでお待ちしています。</span></li>
       <li><b>参加費は割り勘制</b><span>決まった参加費はありません。当日の飲食にかかった実費を、参加者で分けます。</span></li>
-      <li><b>愛車の展示も</b><span>車で来る方は、カフェの前に並べて記念撮影。展示は前日までに申し込んだ方のみです。</span></li>
+      <li><b>愛車の展示も</b><span>車で来る方は、カフェの前に並べて記念撮影。展示は、申し込み時に車の情報を登録した方のみです。</span></li>
     </ul>
   </div>
 </section>
@@ -240,7 +240,7 @@ footer a{margin:0 6px}
       <dt>DRINK</dt><dd>前夜祭はお酒あり／本番は昼の時間帯ノンアルコール<small>運転される方がいるためです。飲酒後の運転は絶対におやめください。</small></dd>
       <dt>ACCESS</dt><dd>都内から車で約4時間が目安<small>年末の渋滞を考えて、余裕をもってお越しください。</small></dd>
       <dt>WINTER</dt><dd>冬用タイヤでお越しください<small>12月の那須は路面が凍結するおそれがあります。</small></dd>
-      <dt>ENTRY</dt><dd>事前予約制・12/26（土）23:59締切<small>車の展示は、前日（12/26）までにお申し込みの方のみです。</small></dd>
+      <dt>ENTRY</dt><dd>事前予約制・12/25（金）22:00締切<small>車を展示したい方は、申し込みフォームで車の情報（車種・ナンバー・色・持ち主のお名前）をご登録ください。</small></dd>
     </dl>
     <div class="map"><iframe loading="lazy" title="会場の地図" src="https://www.google.com/maps?q=%E6%A0%83%E6%9C%A8%E7%9C%8C%E9%82%A3%E9%A0%88%E9%83%A1%E9%82%A3%E9%A0%88%E7%94%BA%E9%AB%98%E4%B9%85%E7%94%B2%E4%B8%8A%E3%81%AE%E5%8F%B05729&output=embed"></iframe></div>
   </div>
@@ -278,6 +278,15 @@ footer a{margin:0 6px}
         </div></div>
       <div class="f" data-k="car" id="carWrap"><label for="car">車種<span class="req">必須</span></label>
         <input id="car" type="text" placeholder="例）トヨタ GRスープラ"><p class="err">車種を入力してください</p></div>
+      <div id="exhibitWrap">
+        <p class="small" style="margin:-6px 0 14px">展示する車の情報を教えてください。当日の配置と車両プロフィールの作成に使います。ナンバーは公開しません。</p>
+        <div class="f" data-k="plate"><label for="plate">ナンバー<span class="req">必須</span></label>
+          <input id="plate" type="text" placeholder="例）那須 300 ち 12-34"><p class="err">ナンバーを入力してください</p></div>
+        <div class="f" data-k="color"><label for="color">車の色<span class="req">必須</span></label>
+          <input id="color" type="text" placeholder="例）パールホワイト"><p class="err">車の色を入力してください</p></div>
+        <div class="f" data-k="owner"><label for="owner">持ち主のお名前<span class="req">必須</span></label>
+          <input id="owner" type="text" placeholder="例）山田 太郎（申込者と同じ場合も入力）"><p class="err">持ち主のお名前を入力してください</p></div>
+      </div>
       <div class="f" data-k="photo"><p class="l">写真・動画の掲載<span class="req">必須</span></p>
         <div class="choices">
           <label><input type="radio" name="photo" value="掲載OK" checked><span>SNSやHPに掲載してよい</span></label>
@@ -305,6 +314,7 @@ footer a{margin:0 6px}
     <details><summary>参加費はいくらですか？</summary><p>決まった参加費はなく、割り勘制です。当日の飲食にかかった実費を参加者で分けます。</p></details>
     <details><summary>前夜祭だけ、本番だけの参加もできますか？</summary><p>できます。申し込みフォームの「参加する日」で選んでください。</p></details>
     <details><summary>宿泊はできますか？</summary><p>会場での宿泊はご案内していません。那須周辺のホテルや宿をご自身でご予約ください。</p></details>
+    <details><summary>車を展示するには？</summary><p>申し込みフォームの来場方法で「展示を希望する」を選び、車種・ナンバー・色・持ち主のお名前をご登録ください。当日は10:00に集合して、カフェ前に並べて撮影します。</p></details>
     <details><summary>雪が降ったら？</summary><p>屋内で開催します。路面の状況によって内容を変える場合は、LINEとメールでお知らせします。冬用タイヤでお越しください。</p></details>
   </div>
 </section>
@@ -353,6 +363,7 @@ footer a{margin:0 6px}
   function radio(n){ var r = f.querySelector('input[name="' + n + '"]:checked'); return r ? r.value : ''; }
   function sync(){
     $('carWrap').hidden = radio('arrive').indexOf('自分の車') !== 0;
+    $('exhibitWrap').hidden = radio('arrive') !== '自分の車（展示希望）';
     $('compWrap').hidden = $('people').value === '1';
   }
   f.addEventListener('change', sync); sync();
@@ -365,6 +376,7 @@ footer a{margin:0 6px}
     ok = setBad('email', !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($('email').value.trim())) && ok;
     ok = setBad('tel', $('tel').value.replace(/[^0-9]/g, '').length < 10) && ok;
     if (!$('carWrap').hidden) ok = setBad('car', !$('car').value.trim()) && ok; else setBad('car', false);
+    ['plate','color','owner'].forEach(function(k){ ok = setBad(k, !$('exhibitWrap').hidden && !$(k).value.trim()) && ok; });
     ok = setBad('agree', !$('agree').checked) && ok;
     if (!ok){ var b = f.querySelector('.f.bad'); if (b) b.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
     return ok;
@@ -380,6 +392,10 @@ footer a{margin:0 6px}
       name: $('name').value.trim(), kana: $('kana').value.trim(), email: $('email').value.trim(), tel: $('tel').value.trim(),
       days: radio('days'), people: $('people').value, companion: $('compWrap').hidden ? '' : $('companion').value.trim(),
       arrive: radio('arrive'), car: $('carWrap').hidden ? '' : $('car').value.trim(),
+      exhibit: $('exhibitWrap').hidden ? 'なし' : 'あり',
+      plate: $('exhibitWrap').hidden ? '' : $('plate').value.trim(),
+      color: $('exhibitWrap').hidden ? '' : $('color').value.trim(),
+      owner: $('exhibitWrap').hidden ? '' : $('owner').value.trim(),
       photo: radio('photo'), note: $('note').value.trim()
     };
     if (!C.GAS_URL){

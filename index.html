@@ -810,13 +810,13 @@ details.more .more-in>*+*{margin-top:30px}
 <span><b id="fxM">--</b><em>分</em></span>
 <span><b id="fxS">--</b><em>秒</em></span>
 </div>
-<p class="fx-dead" id="fxDead">申込締切 12/26（土）23:59</p>
+<p class="fx-dead" id="fxDead">申込締切 12/25（金）22:00</p>
 </div>
 
 <ul class="fx-points">
 <li><b>01</b><strong>交流がメイン</strong><span>テーブルごとにグループを分け、運営メンバーが一緒に進めます。車に詳しくなくても大丈夫。</span></li>
 <li><b>02</b><strong>前夜祭はお酒を片手に</strong><span>12/26の夜は、AIKOUCARの夢広がるビジョンを語り合います。</span></li>
-<li><b>03</b><strong>愛車を並べて撮影</strong><span>本番は10時に車で集合。展示は前日までに申し込んだ方のみです。</span></li>
+<li><b>03</b><strong>愛車を並べて撮影</strong><span>本番は10時に車で集合。展示は申し込み時に車の情報を登録した方のみです。</span></li>
 <li><b>04</b><strong>参加費は割り勘制</strong><span>決まった参加費はありません。当日の飲食の実費を参加者で分けます。</span></li>
 </ul>
 
@@ -842,7 +842,7 @@ details.more .more-in>*+*{margin-top:30px}
 <dl>
 <dt>Place</dt><dd>栃木県那須町（AIKOUCAR 那須カフェ）・屋内開催</dd>
 <dt>Fee</dt><dd>割り勘制（当日の飲食の実費を参加者で分けます）</dd>
-<dt>Entry</dt><dd>事前予約制・12/26（土）23:59締切</dd>
+<dt>Entry</dt><dd>事前予約制・12/25（金）22:00締切</dd>
 <dt>Winter</dt><dd>冬用タイヤでお越しください（本番の昼はノンアルコール）</dd>
 </dl>
 
@@ -1557,7 +1557,7 @@ details.more .more-in>*+*{margin-top:30px}
 /* 那須 忘年会：カウントダウン */
 (function(){
   var box=document.getElementById('nasu'); if(!box) return;
-  var START=new Date('2026-12-27T10:00:00+09:00').getTime(), END=new Date('2026-12-27T16:00:00+09:00').getTime(), DEAD=new Date('2026-12-26T23:59:59+09:00').getTime();
+  var START=new Date('2026-12-27T10:00:00+09:00').getTime(), END=new Date('2026-12-27T16:00:00+09:00').getTime(), DEAD=new Date('2026-12-25T22:00:00+09:00').getTime();
   var $=function(i){return document.getElementById(i)}, pad=function(n){return (n<10?'0':'')+n};
   function tick(){
     var now=Date.now(), d=START-now;
@@ -1571,7 +1571,7 @@ details.more .more-in>*+*{margin-top:30px}
     var left=DEAD-now;
     if(left>0){
       var days=Math.floor(left/86400000);
-      $('fxDead').innerHTML = days>=1 ? '申込締切 12/26（土）23:59 ／ あと<b>'+days+'</b>日' : '申込締切は<b>本日</b>23:59';
+      $('fxDead').innerHTML = days>=1 ? '申込締切 12/25（金）22:00 ／ あと<b>'+days+'</b>日' : '申込締切は<b>本日</b>22:00';
     } else if(d>0){ $('fxDead').textContent='申し込みは締め切りました'; }
     else { $('fxDead').textContent=''; }
   }
